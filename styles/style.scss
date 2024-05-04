@@ -21,15 +21,18 @@
 }
 
 section{
+    height: 100vh;
     padding: 2rem 0;
-    width: 100vw;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 2rem;
+
     .caixa-pesquisa{
-        
+
+        position: relative;
+        height: 15rem;
         @include container();
 
         h1{
@@ -40,6 +43,7 @@ section{
             color: #6b6b6b;
         }
         .pesquisa-container{
+            z-index: 99999;
             display: flex;
             width: 100%;
             margin-top: 1rem;
@@ -50,6 +54,7 @@ section{
                 border-radius: 20px 0px 0px 20px;
                 border: 1px solid #cacaca;
                 outline: none;
+                font-size: 1.3rem;
             }
             button{
                 border-radius: 0 20px 20px 0;
@@ -63,7 +68,12 @@ section{
             }
         }
     }
-    .resultado{
+    .resultado-registrado{
+        opacity: 0;
+        transform: translateX(-9999px);
+        transition: .6s;
+        position: absolute;
+        top: 65%;
         @include container();
 
         p{ 
@@ -87,7 +97,31 @@ section{
                 font-size: 1.2rem;
                 border-bottom: 1px solid #cacaca;
                 padding: 1rem 0;
+
+                span{
+                    font-weight: bold;
+                }
             }
+        }
+    }
+    .resultado-visivel{
+        opacity: 1;
+        transform: translateX(0);
+    }
+    .resultado-disponivel{
+        @extend .resultado-registrado;
+        background-color: #e8faf5;
+        p{
+            span{
+                color: #17594A;
+            }
+        }
+        a{
+            background-color: #17594A;
+            border-radius: 20px;
+            padding: 1rem;
+            text-align: center;
+            color : white;
         }
     }
 }
@@ -103,6 +137,7 @@ section{
                 input{
                     width: 100%;
                     border-radius: 0;
+                    font-size: 1rem;
                 }
                 button{
                     border-radius: 0;
@@ -111,9 +146,9 @@ section{
                 }
             }
         }
-        .resultado{
+        .resultado-registrado{
             width: 95%;
-
+            top: 70%;
             p{                
                 span{
                     font-size: 1.2rem;

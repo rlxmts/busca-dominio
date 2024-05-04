@@ -9,8 +9,8 @@
 }
 
 section {
+  height: 100vh;
   padding: 2rem 0;
-  width: 100vw;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -18,6 +18,8 @@ section {
   gap: 2rem;
 }
 section .caixa-pesquisa {
+  position: relative;
+  height: 15rem;
   background-color: #f0f0f0;
   border: 1px solid #cacaca;
   padding: 2rem;
@@ -35,6 +37,7 @@ section .caixa-pesquisa p {
   color: #6b6b6b;
 }
 section .caixa-pesquisa .pesquisa-container {
+  z-index: 99999;
   display: flex;
   width: 100%;
   margin-top: 1rem;
@@ -46,6 +49,7 @@ section .caixa-pesquisa .pesquisa-container input {
   border-radius: 20px 0px 0px 20px;
   border: 1px solid #cacaca;
   outline: none;
+  font-size: 1.3rem;
 }
 section .caixa-pesquisa .pesquisa-container button {
   border-radius: 0 20px 20px 0;
@@ -57,7 +61,12 @@ section .caixa-pesquisa .pesquisa-container button {
   color: white;
   text-transform: uppercase;
 }
-section .resultado {
+section .resultado-registrado, section .resultado-disponivel {
+  opacity: 0;
+  transform: translateX(-9999px);
+  transition: 0.6s;
+  position: absolute;
+  top: 65%;
   background-color: #f0f0f0;
   border: 1px solid #cacaca;
   padding: 2rem;
@@ -67,27 +76,47 @@ section .resultado {
   width: 70%;
   max-width: 1202px;
 }
-section .resultado p {
+section .resultado-registrado p, section .resultado-disponivel p {
   text-align: center;
 }
-section .resultado p span {
+section .resultado-registrado p span, section .resultado-disponivel p span {
   font-size: 2rem;
   color: #ea6c6c;
   font-weight: 400;
 }
-section .resultado ul {
+section .resultado-registrado ul, section .resultado-disponivel ul {
   margin-top: 2rem;
 }
-section .resultado ul p {
+section .resultado-registrado ul p, section .resultado-disponivel ul p {
   text-align: start;
   font-weight: 600;
   font-size: 1.2rem;
   margin-bottom: -10px;
 }
-section .resultado ul li {
+section .resultado-registrado ul li, section .resultado-disponivel ul li {
   font-size: 1.2rem;
   border-bottom: 1px solid #cacaca;
   padding: 1rem 0;
+}
+section .resultado-registrado ul li span, section .resultado-disponivel ul li span {
+  font-weight: bold;
+}
+section .resultado-visivel {
+  opacity: 1;
+  transform: translateX(0);
+}
+section .resultado-disponivel {
+  background-color: #e8faf5;
+}
+section .resultado-disponivel p span {
+  color: #17594A;
+}
+section .resultado-disponivel a {
+  background-color: #17594A;
+  border-radius: 20px;
+  padding: 1rem;
+  text-align: center;
+  color: white;
 }
 
 @media only screen and (max-width: 668px) {
@@ -101,20 +130,22 @@ section .resultado ul li {
   section .caixa-pesquisa .pesquisa-container input {
     width: 100%;
     border-radius: 0;
+    font-size: 1rem;
   }
   section .caixa-pesquisa .pesquisa-container button {
     border-radius: 0;
     width: 100%;
     max-width: 100%;
   }
-  section .resultado {
+  section .resultado-registrado, section .resultado-disponivel {
     width: 95%;
+    top: 70%;
   }
-  section .resultado p span {
+  section .resultado-registrado p span, section .resultado-disponivel p span {
     font-size: 1.2rem;
     word-wrap: break-word;
   }
-  section .resultado ul li {
+  section .resultado-registrado ul li, section .resultado-disponivel ul li {
     font-size: 1rem;
   }
 }/*# sourceMappingURL=style.css.map */
