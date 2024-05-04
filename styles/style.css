@@ -139,7 +139,7 @@ section .resultado-disponivel a {
   }
   section .resultado-registrado, section .resultado-disponivel {
     width: 95%;
-    top: 70%;
+    top: 73%;
   }
   section .resultado-registrado p span, section .resultado-disponivel p span {
     font-size: 1.2rem;
