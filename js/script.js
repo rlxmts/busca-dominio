@@ -1,0 +1,1 @@
+const endPointAPI = 'https://brasilapi.com.br/api/registrobr/v1/';
